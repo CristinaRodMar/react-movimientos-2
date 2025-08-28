@@ -15,4 +15,4 @@ export interface Account {
     name: string;
     balance: number;
     lastTransaction: string;
-}
+  }

@@ -1,5 +1,5 @@
 import * as apiModel from "./api/account-list.api-model";
-import * as viewModel from "./account-list.vm";
+import * as viewModel from "./account-list.vm"
 
 export const mapAccountListFromApiToVm = (
   accountList: apiModel.Account[]
@@ -10,4 +10,5 @@ export const mapAccountListFromApiToVm = (
     name: account.name,
     balance: account.balance.toString(),
     lastTransaction: new Date(account.lastTransaction),
-  }));
+}));
+

@@ -2,7 +2,7 @@ import { AppLayout } from "@/layouts";
 import React from "react";
 import { AccountVm, MovementVm, accountEmpty } from "./movement-list.vm";
 import classes from "./movement-list.page.module.css";
-import { MovementListTableComponent } from "./component";
+import { MovementListTableComponent } from "./components";
 import { useParams } from "react-router-dom";
 import { getAccount, getMovements } from "./api";
 import { mapAccountFromApiToVm, mapMovementListFromApiToVm } from "./movement-list.mapper";

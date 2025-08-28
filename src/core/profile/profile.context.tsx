@@ -2,7 +2,7 @@ import React from "react";
 
 interface Context {
   userName: string;
-  setUserProfile: (userProfile: string) => void;
+  setUserProfile: (userName: string) => void;
 }
 
 const noUserLogin = "no user login";
@@ -16,19 +16,20 @@ interface Props {
   children: React.ReactNode;
 }
 
-export const ProfileProvider: React.FC<Props> = ({ children }) => {
+export const ProfileProvider: React.FC<Props> = (props) => {
+  const { children } = props;
+  
   const [userProfile, setUserProfile] = React.useState<string>("");
-
   return (
     <ProfileContext.Provider
       value={{
         userName: userProfile,
         setUserProfile,
-      }}
-    >
+        }} 
+        >
       {children}
     </ProfileContext.Provider>
-  );
+    ); 
 };
 
 export const useProfileContext = () => React.useContext(ProfileContext);

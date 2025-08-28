@@ -17,8 +17,7 @@ describe("transfer-form.validation specs", () => {
         dateTransfer: "",
         realDateTransfer: undefined,
         email: "",
-      };
-
+    };
       vi.spyOn(transferFieldValidation, "validateIBANField").mockReturnValue({
         succeeded: true,
       });
@@ -31,8 +30,7 @@ describe("transfer-form.validation specs", () => {
       vi.spyOn(transferFieldValidation, "validateConceptField").mockReturnValue(
         {
           succeeded: true,
-        }
-      );
+    } );
       vi.spyOn(transferFieldValidation, "validateNotesField").mockReturnValue({
         succeeded: true,
       });
@@ -43,11 +41,9 @@ describe("transfer-form.validation specs", () => {
       vi.spyOn(transferFieldValidation, "validateEmailField").mockReturnValue({
         succeeded: true,
       });
-
-      // Act
+    // Act
       const result = validateForm(transfer);
-
-      // Assert
+    // Assert
       expect(result.succeeded).toBeTruthy();
       expect(result.errors).toEqual({
         accountId: "",
@@ -59,10 +55,9 @@ describe("transfer-form.validation specs", () => {
         realDateTransfer: "",
         email: "",
         dateTransfer: "",
-      });
-    });
-
-    it("should return false when validateNameFieldAmount is incorrect", () => {
+    }); });
+    
+it("should return false when validateNameFieldAmount is incorrect", () => {
       // Arrange
       const transfer: TransferVm = {
         accountId: "1",
@@ -74,43 +69,36 @@ describe("transfer-form.validation specs", () => {
         dateTransfer: "",
         email: "",
       };
-
       vi.spyOn(transferFieldValidation, "validateIBANField").mockReturnValue({
         succeeded: true,
       });
-
       vi.spyOn(transferFieldValidation, "validateNameField").mockReturnValue({
         succeeded: false,
         errorMessage: "Error",
       });
-
       vi.spyOn(transferFieldValidation, "validateAmountField").mockReturnValue({
         succeeded: true,
       });
-
       vi.spyOn(transferFieldValidation, "validateConceptField").mockReturnValue(
         {
           succeeded: true,
         }
       );
-
       vi.spyOn(transferFieldValidation, "validateNotesField").mockReturnValue({
         succeeded: true,
       });
-
       vi.spyOn(
         transferFieldValidation,
         "validateRealDateTransferField"
       ).mockReturnValue({ succeeded: true });
-
       vi.spyOn(transferFieldValidation, "validateEmailField").mockReturnValue({
         succeeded: true,
       });
 
-      // Act
+// Act
       const result = validateForm(transfer);
 
-      // Assert
+// Assert
       expect(result.succeeded).toBeFalsy();
       expect(result.errors).toEqual({
         accountId: "",
@@ -122,8 +110,8 @@ describe("transfer-form.validation specs", () => {
         realDateTransfer: "",
         email: "",
         dateTransfer: "",
-      });
-      // Do the same with the rest of the fields
     });
-  });
+    // Do the same with the rest of the fields
+        }); 
+    });
 });
